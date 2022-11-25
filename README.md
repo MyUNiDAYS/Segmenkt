@@ -9,13 +9,13 @@ The SegmenKT Kotlin SDK is a Kotlin-first SDK for Segment. Its API is similar to
 ### KMM
 
 ```
-implementation("com.myunidays:segmenkt:0.0.4")
+implementation("com.myunidays:segmenkt:0.0.9")
 ```
 
 ### Android
 
 ```
-implementation("com.myunidays:segmenkt-android:0.0.4")
+implementation("com.myunidays:segmenkt-android:0.0.9")
 ```
 
 ### iOS
