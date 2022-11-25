@@ -27,7 +27,7 @@ jobs:
       - name: Build
         run: ./gradlew build
       - name: Run create xcframework
-        run: ./gradlew assembleLibraryXCFramework
+        run: ./gradlew assembleSegmenktXCFramework
       - name: Run publish
         run: ./gradlew publish
         env:
@@ -51,7 +51,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          upload_url: https://uploads.github.com/repos/MyUNiDAYS/libraryname/releases/${{ steps.lastRelease.outputs.id }}/assets?name=${{ github.ref_name }}.zip
+          upload_url: https://uploads.github.com/repos/MyUNiDAYS/Segmenkt/releases/${{ steps.lastRelease.outputs.id }}/assets?name=${{ github.ref_name }}.zip
           asset_path: build/${{ github.ref_name }}.zip
           asset_name: ${{ github.ref_name }}.zip
           asset_content_type: application/zip
