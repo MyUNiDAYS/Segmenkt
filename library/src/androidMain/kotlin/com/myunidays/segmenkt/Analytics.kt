@@ -16,6 +16,7 @@ actual class Analytics internal constructor(val android: com.segment.analytics.A
                 .flushInterval(configuration.flushInterval.toLong(), TimeUnit.SECONDS)
                 .flushQueueSize(configuration.flushAt)
                 .tag(if (configuration.tag.isNullOrBlank()) configuration.writeKey else configuration.tag + "-" + configuration.writeKey)
+            configuration.factories.forEach { analyticsConfig.use(it) }
             if (configuration.trackDeepLinks) analyticsConfig.trackDeepLinks()
             if (configuration.trackApplicationLifecycleEvents) analyticsConfig.trackApplicationLifecycleEvents()
             configuration.apiHost?.let { analyticsConfig.defaultApiHost(it) }
@@ -52,7 +53,7 @@ actual class Analytics internal constructor(val android: com.segment.analytics.A
             }
         )
 
-    actual fun identify(userId: String, traits: Map<Any?, *>?, options: Map<Any?, *>?) =
+    actual fun identify(userId: String?, traits: Map<Any?, *>?, options: Map<Any?, *>?) =
         android.identify(
             userId,
             Traits().apply {

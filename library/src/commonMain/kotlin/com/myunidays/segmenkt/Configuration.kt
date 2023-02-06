@@ -31,6 +31,7 @@ data class Configuration(
 //    val autoAddSegmentDestination: Boolean = true,
     val apiHost: String? = null,
 //    val cdnHost: String? = null
+    val factories: List<Factory> = emptyList()
 ) {
     constructor(writeKey: WriteKey, tag: String?, context: Any? = null) :
         this(writeKey = writeKey.keyForPlatform(), tag = tag, application = context)
