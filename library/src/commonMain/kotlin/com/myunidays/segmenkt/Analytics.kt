@@ -3,7 +3,7 @@ package com.myunidays.segmenkt
 expect class Analytics {
 
     companion object {
-        fun setupWithConfiguration(configuration: Configuration): Analytics
+        fun setup(configuration: Configuration): Analytics
         fun shared(context: Any? = null): Analytics
     }
 

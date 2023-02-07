@@ -18,21 +18,30 @@ package com.myunidays.segmenkt
 
 data class Configuration(
     val writeKey: String,
-    val tag: String? = null,
-    val application: Any? = null,
+    var tag: String? = null,
+    var application: Any? = null,
 //    val storageProvider: StorageProvider,
-    val collectDeviceId: Boolean = false,
-    val trackApplicationLifecycleEvents: Boolean = false,
-    val useLifecycleObserver: Boolean = false,
-    val trackDeepLinks: Boolean = false,
-    val flushAt: Int = 20,
-    val flushInterval: Int = 30,
+    var collectDeviceId: Boolean = false,
+    var trackApplicationLifecycleEvents: Boolean = false,
+    var useLifecycleObserver: Boolean = false,
+    var trackDeepLinks: Boolean = false,
+    var flushAt: Int = 20,
+    var flushInterval: Int = 30,
 //    val defaultSettings: Settings = Settings(),
 //    val autoAddSegmentDestination: Boolean = true,
-    val apiHost: String? = null,
+
+    var apiHost: String? = null,
 //    val cdnHost: String? = null
-    val factories: List<Factory> = emptyList()
+    var factories: List<AppsFlyerIntegrationFactory> = emptyList(), // need to change this to be generic factory
+    var recordScreenViews: Boolean = true,
+    var enableAdvertisingTracking: Boolean = false,
+    var adSupportBlock: (() -> String)? = null,
 ) {
+    constructor(writeKey: String) : this(writeKey = writeKey, application = null)
     constructor(writeKey: WriteKey, tag: String?, context: Any? = null) :
         this(writeKey = writeKey.keyForPlatform(), tag = tag, application = context)
+
+    fun use(factory: AppsFlyerIntegrationFactory) {
+        factories = factories + factory
+    }
 }

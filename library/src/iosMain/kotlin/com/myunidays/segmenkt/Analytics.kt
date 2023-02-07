@@ -1,19 +1,18 @@
 package com.myunidays.segmenkt
 
-import platform.Foundation.NSDictionary
 import platform.Foundation.NSURL
 import platform.Foundation.NSUserActivity
 
 actual class Analytics internal constructor(val ios: cocoapods.Analytics.SEGAnalytics) {
 
     actual companion object {
-        actual fun setupWithConfiguration(configuration: Configuration): Analytics {
+        actual fun setup(configuration: Configuration): Analytics {
             val analyticsConfig = cocoapods.Analytics.SEGAnalyticsConfiguration.configurationWithWriteKey(configuration.writeKey)
             analyticsConfig.trackApplicationLifecycleEvents = configuration.trackApplicationLifecycleEvents
             analyticsConfig.flushInterval = configuration.flushInterval.toDouble()
             analyticsConfig.flushAt = configuration.flushAt.toULong()
             analyticsConfig.trackDeepLinks = configuration.trackDeepLinks
-            configuration.factories.forEach { analyticsConfig.use(it) }
+            configuration.factories.forEach { analyticsConfig.use(it.ios) }
             cocoapods.Analytics.SEGAnalytics.setupWithConfiguration(analyticsConfig)
             return shared(null)
         }
@@ -22,6 +21,8 @@ actual class Analytics internal constructor(val ios: cocoapods.Analytics.SEGAnal
             Analytics(cocoapods.Analytics.SEGAnalytics.sharedAnalytics())
 
         fun shared(): Analytics = shared(null)
+
+        fun debug(showDebugLogs: Boolean) = cocoapods.Analytics.SEGAnalytics.debug(showDebugLogs)
     }
 
     actual fun alias(userId: String, options: Map<Any?, *>?) = ios.alias(userId, options?.let { mapOf("context" to it) })

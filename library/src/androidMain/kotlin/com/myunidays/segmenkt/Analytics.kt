@@ -9,14 +9,14 @@ import java.util.concurrent.TimeUnit
 actual class Analytics internal constructor(val android: com.segment.analytics.Analytics) {
 
     actual companion object {
-        actual fun setupWithConfiguration(configuration: Configuration): Analytics {
+        actual fun setup(configuration: Configuration): Analytics {
             val analyticsConfig = com.segment.analytics.Analytics.Builder(configuration.application as Context, configuration.writeKey)
                 .collectDeviceId(configuration.collectDeviceId)
                 .experimentalUseNewLifecycleMethods(configuration.useLifecycleObserver)
                 .flushInterval(configuration.flushInterval.toLong(), TimeUnit.SECONDS)
                 .flushQueueSize(configuration.flushAt)
                 .tag(if (configuration.tag.isNullOrBlank()) configuration.writeKey else configuration.tag + "-" + configuration.writeKey)
-            configuration.factories.forEach { analyticsConfig.use(it) }
+            configuration.factories.forEach { analyticsConfig.use(it.android) }
             if (configuration.trackDeepLinks) analyticsConfig.trackDeepLinks()
             if (configuration.trackApplicationLifecycleEvents) analyticsConfig.trackApplicationLifecycleEvents()
             configuration.apiHost?.let { analyticsConfig.defaultApiHost(it) }
