@@ -36,7 +36,7 @@ actual class Analytics internal constructor(val ios: cocoapods.Analytics.SEGAnal
     } else {
         ios.enable()
     }
-    
+
     actual fun reset() {
         ios.reset()
     }
