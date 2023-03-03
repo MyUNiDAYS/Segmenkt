@@ -12,6 +12,7 @@ expect class Analytics {
     fun alias(userId: String, options: Map<Any?, *>? = null)
     fun screen(screenTitle: String, properties: Map<Any?, *>? = null, options: Map<Any?, *>? = null)
     fun group(groupId: String, traits: Map<Any?, *>? = null, options: Map<Any?, *>? = null)
+    fun optOut(status: Boolean)
 
     fun reset()
 }

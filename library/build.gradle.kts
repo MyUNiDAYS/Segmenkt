@@ -96,7 +96,7 @@ android {
     buildToolsVersion = "30.0.3"
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdk = 23
+        minSdk = 24
         targetSdk = 31
     }
     compileOptions {
