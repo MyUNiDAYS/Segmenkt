@@ -28,6 +28,8 @@ actual class Analytics {
     actual fun group(groupId: String, traits: Map<Any?, *>?, options: Map<Any?, *>?) {
     }
 
+    actual fun optOut(status: Boolean) {
+    }
     actual fun reset() {
     }
 }
