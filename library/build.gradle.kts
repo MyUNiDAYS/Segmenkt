@@ -10,7 +10,7 @@ version = MODULE_VERSION_NUMBER
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization")
+    kotlin("plugin.serialization") version "1.7.20"
     kotlin("native.cocoapods")
     id("com.android.library")
     id("org.jlleitschuh.gradle.ktlint")
