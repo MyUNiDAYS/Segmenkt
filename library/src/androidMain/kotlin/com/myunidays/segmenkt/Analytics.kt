@@ -101,6 +101,11 @@ actual class Analytics internal constructor(val android: com.segment.analytics.A
             }
         )
 
+    actual fun optOut(status: Boolean) =
+        android.optOut(
+            status
+        )
+
     actual fun reset() {
         android.reset()
     }
