@@ -32,10 +32,11 @@ actual class Analytics internal constructor(val ios: cocoapods.Analytics.SEGAnal
     actual fun group(groupId: String, traits: Map<Any?, *>?, options: Map<Any?, *>?) = ios.group(groupId, traits, options?.let { mapOf("context" to it) })
 
     actual fun optOut(status: Boolean) = if (status) {
-        ios.enable()
-    } else {
         ios.disable()
+    } else {
+        ios.enable()
     }
+    
     actual fun reset() {
         ios.reset()
     }
