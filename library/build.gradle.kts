@@ -10,7 +10,7 @@ version = MODULE_VERSION_NUMBER
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization") version "1.7.20"
+    kotlin("plugin.serialization")
     kotlin("native.cocoapods")
     id("com.android.library")
     id("org.jlleitschuh.gradle.ktlint")
@@ -96,7 +96,7 @@ android {
     buildToolsVersion = "30.0.3"
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdk = 23
+        minSdk = 24
         targetSdk = 31
     }
     compileOptions {
