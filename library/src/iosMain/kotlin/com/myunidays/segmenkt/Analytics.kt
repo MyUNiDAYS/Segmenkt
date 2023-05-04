@@ -1,5 +1,6 @@
 package com.myunidays.segmenkt
 
+import cocoapods.Analytics.SEGApplicationProtocolProtocol
 import platform.Foundation.NSURL
 import platform.Foundation.NSUserActivity
 
@@ -12,8 +13,17 @@ actual class Analytics internal constructor(val ios: cocoapods.Analytics.SEGAnal
             analyticsConfig.flushInterval = configuration.flushInterval.toDouble()
             analyticsConfig.flushAt = configuration.flushAt.toULong()
             analyticsConfig.trackDeepLinks = configuration.trackDeepLinks
-            configuration.factories.forEach { analyticsConfig.use(it.ios) }
+            analyticsConfig.trackPushNotifications = configuration.trackPushNotifications
+            analyticsConfig.recordScreenViews = configuration.recordScreenViews
+            analyticsConfig.adSupportBlock = configuration.adSupportBlock
+            analyticsConfig.application = configuration.application as? SEGApplicationProtocolProtocol
+            analyticsConfig.enableAdvertisingTracking = configuration.enableAdvertisingTracking
+
+            configuration.factories.forEach {
+                analyticsConfig.use(it)
+            }
             cocoapods.Analytics.SEGAnalytics.setupWithConfiguration(analyticsConfig)
+            cocoapods.Analytics.SEGAnalytics.debug(configuration.debug)
             return shared(null)
         }
 

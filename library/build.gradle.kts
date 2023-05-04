@@ -68,17 +68,11 @@ kotlin {
         noPodspec()
         framework { isStatic = true }
         pod("Analytics") {
-            version = "~> 4.1.6"
             moduleName = "Segment"
             source = git("https://github.com/Reedyuk/analytics-ios.git") {
                 branch = "master"
             }
         }
-//        pod("segment-appsflyer-ios") {
-//            source = git("https://github.com/Reedyuk/segment-appsflyer-ios.git") {
-//                branch = "master"
-//            }
-//        }
     }
     sourceSets {
         val commonMain by getting
@@ -91,7 +85,7 @@ kotlin {
         val jsTest by getting
         val androidMain by getting {
             dependencies {
-                api("com.segment.analytics.android:analytics:4.10.3")
+                api("com.segment.analytics.android:analytics:4.10.4")
                 api("com.appsflyer:segment-android-integration:6.5.2")
             }
         }

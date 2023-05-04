@@ -1,5 +1,7 @@
 package com.myunidays.segmenkt
 
+import com.myunidays.segmenkt.integrations.IntegrationFactory
+
 /**
  * Configuration that analytics can use
  * @property writeKey the Segment writeKey
@@ -25,6 +27,7 @@ data class Configuration(
     var trackApplicationLifecycleEvents: Boolean = false,
     var useLifecycleObserver: Boolean = false,
     var trackDeepLinks: Boolean = false,
+    var trackPushNotifications: Boolean = false,
     var flushAt: Int = 20,
     var flushInterval: Int = 30,
 //    val defaultSettings: Settings = Settings(),
@@ -32,16 +35,9 @@ data class Configuration(
 
     var apiHost: String? = null,
 //    val cdnHost: String? = null
-    var factories: List<AppsFlyerIntegrationFactory> = emptyList(), // need to change this to be generic factory
+    var factories: List<IntegrationFactory> = emptyList(),
     var recordScreenViews: Boolean = true,
     var enableAdvertisingTracking: Boolean = false,
     var adSupportBlock: (() -> String)? = null,
-) {
-    constructor(writeKey: String) : this(writeKey = writeKey, application = null)
-    constructor(writeKey: WriteKey, tag: String?, context: Any? = null) :
-        this(writeKey = writeKey.keyForPlatform(), tag = tag, application = context)
-
-    fun use(factory: AppsFlyerIntegrationFactory) {
-        factories = factories + factory
-    }
-}
+    var debug: Boolean = false
+)

@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="template-kotlin-library-jslegacy-0.0.1">
+    <output-path>$PROJECT_DIR$/library/build/libs</output-path>
+    <root id="archive" name="template-kotlin-library-jslegacy-0.0.1.jar" />
+  </artifact>
+</component>
