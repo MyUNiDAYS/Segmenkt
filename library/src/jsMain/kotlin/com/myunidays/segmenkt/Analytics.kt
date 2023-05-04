@@ -2,7 +2,7 @@ package com.myunidays.segmenkt
 
 actual class Analytics {
     actual companion object {
-        actual fun setupWithConfiguration(configuration: Configuration): Analytics {
+        actual fun setup(configuration: Configuration): Analytics {
             return shared(null)
         }
 
@@ -15,7 +15,7 @@ actual class Analytics {
     actual fun track(name: String, properties: Map<Any?, *>?, options: Map<Any?, *>?) {
     }
 
-    actual fun identify(userId: String, traits: Map<Any?, *>?, options: Map<Any?, *>?) {
+    actual fun identify(userId: String?, traits: Map<Any?, *>?, options: Map<Any?, *>?) {
     }
 
     actual fun screen(

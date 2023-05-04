@@ -3,7 +3,7 @@ import java.util.Properties
 include(":library")
 
 val properties = Properties()
-val propertiesFile = File("library/gradle.properties")
+val propertiesFile = File("${rootDir}/library/gradle.properties")
 if (propertiesFile.exists()) {
     properties.load(propertiesFile.inputStream())
 }

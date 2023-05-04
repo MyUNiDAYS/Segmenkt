@@ -9,16 +9,19 @@ import java.util.concurrent.TimeUnit
 actual class Analytics internal constructor(val android: com.segment.analytics.Analytics) {
 
     actual companion object {
-        actual fun setupWithConfiguration(configuration: Configuration): Analytics {
+        actual fun setup(configuration: Configuration): Analytics {
             val analyticsConfig = com.segment.analytics.Analytics.Builder(configuration.application as Context, configuration.writeKey)
                 .collectDeviceId(configuration.collectDeviceId)
                 .experimentalUseNewLifecycleMethods(configuration.useLifecycleObserver)
                 .flushInterval(configuration.flushInterval.toLong(), TimeUnit.SECONDS)
                 .flushQueueSize(configuration.flushAt)
                 .tag(if (configuration.tag.isNullOrBlank()) configuration.writeKey else configuration.tag + "-" + configuration.writeKey)
+            configuration.factories.forEach { analyticsConfig.use(it) }
             if (configuration.trackDeepLinks) analyticsConfig.trackDeepLinks()
             if (configuration.trackApplicationLifecycleEvents) analyticsConfig.trackApplicationLifecycleEvents()
             configuration.apiHost?.let { analyticsConfig.defaultApiHost(it) }
+            analyticsConfig.logLevel(if (configuration.debug) com.segment.analytics.Analytics.LogLevel.VERBOSE else com.segment.analytics.Analytics.LogLevel.INFO)
+            if (configuration.recordScreenViews) analyticsConfig.recordScreenViews()
             val analytics = analyticsConfig.build()
             com.segment.analytics.Analytics.setSingletonInstance(analytics)
             return Analytics(analytics)
@@ -52,7 +55,7 @@ actual class Analytics internal constructor(val android: com.segment.analytics.A
             }
         )
 
-    actual fun identify(userId: String, traits: Map<Any?, *>?, options: Map<Any?, *>?) =
+    actual fun identify(userId: String?, traits: Map<Any?, *>?, options: Map<Any?, *>?) =
         android.identify(
             userId,
             Traits().apply {

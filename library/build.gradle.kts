@@ -10,7 +10,7 @@ version = MODULE_VERSION_NUMBER
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization") version "1.7.20"
+    kotlin("plugin.serialization")
     kotlin("native.cocoapods")
     id("com.android.library")
     id("org.jlleitschuh.gradle.ktlint")
@@ -63,6 +63,17 @@ kotlin {
             xcf.add(this)
         }
     }
+    cocoapods {
+        ios.deploymentTarget = "10.0"
+        noPodspec()
+        framework { isStatic = true }
+        pod("Analytics") {
+            moduleName = "Segment"
+            source = git("https://github.com/Reedyuk/analytics-ios.git") {
+                branch = "master"
+            }
+        }
+    }
     sourceSets {
         val commonMain by getting
         val commonTest by getting {
@@ -74,7 +85,8 @@ kotlin {
         val jsTest by getting
         val androidMain by getting {
             dependencies {
-                api("com.segment.analytics.android:analytics:4.10.3")
+                api("com.segment.analytics.android:analytics:4.10.4")
+                api("com.appsflyer:segment-android-integration:6.5.2")
             }
         }
         val androidTest by getting {
@@ -102,21 +114,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-}
-
-kotlin {
-    cocoapods {
-        ios.deploymentTarget = "10.0"
-        noPodspec()
-        framework { isStatic = true }
-        pod("Analytics") {
-            version = "~> 4.1.6"
-            moduleName = "Segment"
-            source = git("https://github.com/Reedyuk/analytics-ios.git") {
-                branch = "master"
-            }
-        }
     }
 }
 
