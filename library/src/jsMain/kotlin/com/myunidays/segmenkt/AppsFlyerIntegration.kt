@@ -8,7 +8,7 @@ import com.myunidays.segmenkt.integrations.IntegrationFactory
 import com.myunidays.segmenkt.integrations.ScreenPayload
 import com.myunidays.segmenkt.integrations.TrackPayload
 
-actual class AppsflyerIntegration : Integration<AppsflyerIntegration> {
+actual class AppsFlyerIntegration : Integration<AppsFlyerIntegration> {
     override fun identify(identifyPayload: IdentifyPayload) {
     }
     override fun group(groupPayload: GroupPayload) {

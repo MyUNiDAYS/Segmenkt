@@ -10,9 +10,9 @@ import com.myunidays.segmenkt.integrations.IntegrationFactory
 import com.myunidays.segmenkt.integrations.ScreenPayload
 import com.myunidays.segmenkt.integrations.TrackPayload
 
-actual class AppsflyerIntegration internal constructor(
+actual class AppsFlyerIntegration internal constructor(
     private val ios: cocoapods.Analytics.SEGIntegrationProtocol
-) : Integration<AppsflyerIntegration> {
+) : Integration<AppsFlyerIntegration> {
     override fun identify(identifyPayload: IdentifyPayload) = ios.identify(identifyPayload)
     override fun group(groupPayload: GroupPayload) = ios.group(groupPayload)
     override fun track(trackPayload: TrackPayload) = ios.track(trackPayload)

@@ -10,9 +10,9 @@ import com.myunidays.segmenkt.integrations.IntegrationFactory
 import com.myunidays.segmenkt.integrations.ScreenPayload
 import com.myunidays.segmenkt.integrations.TrackPayload
 
-actual class AppsflyerIntegration internal constructor(
+actual class AppsFlyerIntegration internal constructor(
     private val android: com.segment.analytics.integrations.Integration<*>
-) : Integration<AppsflyerIntegration> {
+) : Integration<AppsFlyerIntegration> {
     fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) =
         android.onActivityCreated(activity, savedInstanceState)
     fun onActivityStarted(activity: Activity?) = android.onActivityStarted(activity)
