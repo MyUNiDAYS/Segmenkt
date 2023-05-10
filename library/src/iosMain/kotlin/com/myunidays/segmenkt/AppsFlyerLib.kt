@@ -15,4 +15,5 @@ actual class AppsFlyerLib internal constructor(val ios: cocoapods.Analytics.Apps
     actual fun getAppsFlyerUID(context: Any?): String? = ios.getAppsFlyerUID()
     actual fun start(context: Any?) = ios.start()
     actual fun setDebug(isDebug: Boolean) = ios.setIsDebug(isDebug)
+    actual fun stop(shouldStop: Boolean, context: Any?) = ios.setIsStopped(shouldStop)
 }
