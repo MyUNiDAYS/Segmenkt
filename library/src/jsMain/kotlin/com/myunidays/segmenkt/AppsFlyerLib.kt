@@ -13,4 +13,7 @@ actual class AppsFlyerLib {
 
     actual fun setDebug(isDebug: Boolean) {
     }
+
+    actual fun stop(shouldStop: Boolean, context: Any?) {
+    }
 }
