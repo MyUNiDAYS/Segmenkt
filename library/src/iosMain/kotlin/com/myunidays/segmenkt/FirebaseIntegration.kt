@@ -9,46 +9,35 @@ import com.myunidays.segmenkt.integrations.ScreenPayload
 import com.myunidays.segmenkt.integrations.TrackPayload
 
 actual class FirebaseIntegration internal constructor(
-    private val ios: cocoapods.Segment_Firebase
+    private val ios: cocoapods.SegmentFirebase.SEGFirebaseIntegration
 ) : Integration<FirebaseIntegration> {
-    override fun identify(identifyPayload: IdentifyPayload) {
-        TODO("Not yet implemented")
-    }
+    override fun identify(identifyPayload: IdentifyPayload) =
+        ios.identify(identifyPayload as cocoapods.SegmentFirebase.SEGIdentifyPayload)
 
-    override fun group(groupPayload: GroupPayload) {
-        TODO("Not yet implemented")
-    }
+    override fun group(groupPayload: GroupPayload) =
+        ios.group(groupPayload as cocoapods.SegmentFirebase.SEGGroupPayload)
 
-    override fun track(trackPayload: TrackPayload) {
-        TODO("Not yet implemented")
-    }
+    override fun track(trackPayload: TrackPayload) =
+        ios.track(trackPayload as cocoapods.SegmentFirebase.SEGTrackPayload)
 
-    override fun alias(aliasPayload: AliasPayload) {
-        TODO("Not yet implemented")
-    }
+    override fun alias(aliasPayload: AliasPayload) =
+        ios.alias(aliasPayload as cocoapods.SegmentFirebase.SEGAliasPayload)
 
-    override fun screen(screenPayload: ScreenPayload) {
-        TODO("Not yet implemented")
-    }
+    override fun screen(screenPayload: ScreenPayload) =
+        ios.screen(screenPayload as cocoapods.SegmentFirebase.SEGScreenPayload)
 
-    override fun flush() {
-        TODO("Not yet implemented")
-    }
+    override fun flush() = ios.flush()
 
-    override fun reset() {
-        TODO("Not yet implemented")
-    }
+    override fun reset() = ios.reset()
 
     override fun debug(debug: Boolean) {
-        TODO("Not yet implemented")
     }
 
     actual companion object {
         actual fun factory(
             delegate: Any?,
             deeplinkHandler: Any?
-        ): IntegrationFactory {
-            TODO("Not yet implemented")
-        }
+        ): IntegrationFactory =
+            cocoapods.SegmentFirebase.SEGFirebaseIntegrationFactory.Companion.instance() as cocoapods.Analytics.SEGIntegrationFactoryProtocol
     }
 }
