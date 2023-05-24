@@ -25,6 +25,6 @@ actual class FirebaseIntegration internal constructor(
             delegate: Any?,
             deeplinkHandler: Any?
         ): IntegrationFactory =
-            cocoapods.SegmentFirebase.SEGFirebaseIntegrationFactory.Companion.instance() as cocoapods.Analytics.SEGIntegrationFactoryProtocol
+            cocoapods.Segment_Firebase.SEGFirebaseIntegrationFactory.Companion.instance() as cocoapods.Analytics.SEGIntegrationFactoryProtocol
     }
 }

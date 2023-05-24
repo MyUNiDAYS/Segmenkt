@@ -73,7 +73,7 @@ kotlin {
                 branch = "master"
             }
         }
-        pod("SegmentFirebase") {
+        pod("Segment-Firebase") {
             source = git("https://github.com/Reedyuk/analytics-ios-integration-firebase.git") {
                 branch = "kmm"
             }
