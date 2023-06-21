@@ -64,13 +64,18 @@ kotlin {
         }
     }
     cocoapods {
-        ios.deploymentTarget = "10.0"
+        ios.deploymentTarget = "11.0"
         noPodspec()
         framework { isStatic = true }
         pod("Analytics") {
             moduleName = "Segment"
             source = git("https://github.com/Reedyuk/analytics-ios.git") {
                 branch = "master"
+            }
+        }
+        pod("Segment-Firebase") {
+            source = git("https://github.com/Reedyuk/analytics-ios-integration-firebase.git") {
+                branch = "kmm"
             }
         }
     }
@@ -86,7 +91,8 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 api("com.segment.analytics.android:analytics:4.10.4")
-                api("com.appsflyer:segment-android-integration:6.5.2")
+                api("com.appsflyer:segment-android-integration:6.10.3")
+                api("com.segment.analytics.android.integrations:firebase:2.3.3")
             }
         }
         val androidTest by getting {
