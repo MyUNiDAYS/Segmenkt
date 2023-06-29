@@ -27,7 +27,7 @@ jobs:
       - name: Build
         run: ./gradlew build
       - name: Run create xcframework
-        run: ./gradlew assembleSegmenktXCFramework
+        run: ./gradlew createXCFramework
       - name: Run publish
         run: ./gradlew publish
         env:
@@ -44,7 +44,7 @@ jobs:
           view_top: 1
       - uses: vimtor/action-zip@v1
         with:
-          files: library/build/XCFrameworks/release/
+          files: library/swiftpackage/segmenkt.xcframework
           dest: build/${{ github.ref_name }}.zip
       - name: upload iOS artifact to release
         uses: actions/upload-release-asset@v1

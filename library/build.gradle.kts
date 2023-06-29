@@ -10,6 +10,7 @@ plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
     kotlin("native.cocoapods")
+    id("io.github.luca992.multiplatform-swiftpackage") version "2.0.5-arm64"
     id("com.android.library")
     id("org.jlleitschuh.gradle.ktlint")
     id("io.gitlab.arturbosch.detekt")
@@ -174,6 +175,14 @@ publishing {
                 developerConnection.set(PUBLISH_SCM_DEVELOPERCONNECTION)
             }
         }
+    }
+}
+
+multiplatformSwiftPackage {
+    packageName(MODULE_NAME)
+    swiftToolsVersion("5.4")
+    targetPlatforms {
+        iOS { v("13") }
     }
 }
 
