@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
-
 val MODULE_PACKAGE_NAME: String by project
 val MODULE_NAME: String by project
 val MODULE_VERSION_NUMBER: String by project
@@ -50,23 +48,15 @@ kotlin {
         publishAllLibraryVariants()
         publishLibraryVariantsGroupedByFlavor = true
     }
-    val xcf = XCFramework(MODULE_NAME)
-    ios {
-        binaries.framework {
-            baseName = MODULE_NAME
-            xcf.add(this)
-        }
-    }
-    iosSimulatorArm64 {
-        binaries.framework {
-            baseName = MODULE_NAME
-            xcf.add(this)
-        }
-    }
+    ios()
+    iosSimulatorArm64()
     cocoapods {
         ios.deploymentTarget = "11.0"
         noPodspec()
-        framework { isStatic = true }
+        framework {
+            baseName = MODULE_NAME
+            isStatic = true
+        }
         pod("Analytics") {
             moduleName = "Segment"
             source = git("https://github.com/Reedyuk/analytics-ios.git") {
