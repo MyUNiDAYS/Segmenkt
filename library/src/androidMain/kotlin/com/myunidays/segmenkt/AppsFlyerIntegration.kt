@@ -10,6 +10,7 @@ import com.myunidays.segmenkt.integrations.IntegrationFactory
 import com.myunidays.segmenkt.integrations.ScreenPayload
 import com.myunidays.segmenkt.integrations.TrackPayload
 
+@Suppress("TooManyFunctions")
 actual class AppsFlyerIntegration internal constructor(
     private val android: com.segment.analytics.integrations.Integration<*>
 ) : Integration<AppsFlyerIntegration> {
@@ -29,10 +30,11 @@ actual class AppsFlyerIntegration internal constructor(
     override fun screen(screenPayload: ScreenPayload) = android.screen(screenPayload)
     override fun flush() = android.flush()
     override fun reset() = android.reset()
-    override fun debug(debug: Boolean) {
-    }
+    @Suppress("EmptyFunctionBlock")
+    override fun debug(debug: Boolean) { }
 
     actual companion object {
-        actual fun factory(delegate: Any?, deeplinkHandler: Any?): IntegrationFactory = com.segment.analytics.android.integrations.appsflyer.AppsflyerIntegration.FACTORY
+        actual fun factory(delegate: Any?, deeplinkHandler: Any?): IntegrationFactory =
+            com.segment.analytics.android.integrations.appsflyer.AppsflyerIntegration.FACTORY
     }
 }

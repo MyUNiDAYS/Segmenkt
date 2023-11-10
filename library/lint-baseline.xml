@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.1.2" type="baseline" client="gradle" dependencies="false" name="AGP (8.1.2)" variant="all" version="8.1.2">
+
+    <issue
+        id="GradleCompatible"
+        message="Dependencies using groupId `com.android.support` and `androidx.*` can not be combined but found `com.android.support:support-v4:25.2.0` and `androidx.lifecycle:lifecycle-process:2.2.0` incompatible dependencies">
+        <location
+            file="build.gradle.kts"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.appsflyer:segment-android-integration than 6.5.2 is available: 6.10.3"
+        errorLine1="                api(&quot;com.appsflyer:segment-android-integration:6.5.2&quot;)"
+        errorLine2="                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="96"
+            column="22"/>
+    </issue>
+
+</issues>

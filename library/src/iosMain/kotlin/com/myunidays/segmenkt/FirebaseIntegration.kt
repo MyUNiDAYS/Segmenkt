@@ -18,6 +18,7 @@ actual class FirebaseIntegration internal constructor(
     override fun screen(screenPayload: ScreenPayload) = ios.screen(screenPayload)
     override fun flush() = ios.flush()
     override fun reset() = ios.reset()
+    @Suppress("EmptyFunctionBlock")
     override fun debug(debug: Boolean) { }
 
     actual companion object {
@@ -25,6 +26,7 @@ actual class FirebaseIntegration internal constructor(
             delegate: Any?,
             deeplinkHandler: Any?
         ): IntegrationFactory =
-            cocoapods.Segment_Firebase.SEGFirebaseIntegrationFactory.Companion.instance() as cocoapods.Analytics.SEGIntegrationFactoryProtocol
+            cocoapods.Segment_Firebase.SEGFirebaseIntegrationFactory.Companion.instance()
+                as cocoapods.Analytics.SEGIntegrationFactoryProtocol
     }
 }

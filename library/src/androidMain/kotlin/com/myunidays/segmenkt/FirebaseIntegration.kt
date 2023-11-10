@@ -10,6 +10,7 @@ import com.myunidays.segmenkt.integrations.IntegrationFactory
 import com.myunidays.segmenkt.integrations.ScreenPayload
 import com.myunidays.segmenkt.integrations.TrackPayload
 
+@Suppress("TooManyFunctions")
 actual class FirebaseIntegration internal constructor(
     private val android: com.segment.analytics.integrations.Integration<*>
 ) : Integration<FirebaseIntegration> {
@@ -29,8 +30,9 @@ actual class FirebaseIntegration internal constructor(
     override fun screen(screenPayload: ScreenPayload) = android.screen(screenPayload)
     override fun flush() = android.flush()
     override fun reset() = android.reset()
-    override fun debug(debug: Boolean) {
-    }
+
+    @Suppress("EmptyFunctionBlock")
+    override fun debug(debug: Boolean) { }
 
     actual companion object {
         actual fun factory(

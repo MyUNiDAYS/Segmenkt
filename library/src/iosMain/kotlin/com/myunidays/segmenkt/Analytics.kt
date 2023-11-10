@@ -8,7 +8,8 @@ actual class Analytics internal constructor(val ios: cocoapods.Analytics.SEGAnal
 
     actual companion object {
         actual fun setup(configuration: Configuration): Analytics {
-            val analyticsConfig = cocoapods.Analytics.SEGAnalyticsConfiguration.configurationWithWriteKey(configuration.writeKey)
+            val analyticsConfig =
+                cocoapods.Analytics.SEGAnalyticsConfiguration.configurationWithWriteKey(configuration.writeKey)
             analyticsConfig.trackApplicationLifecycleEvents = configuration.trackApplicationLifecycleEvents
             analyticsConfig.flushInterval = configuration.flushInterval.toDouble()
             analyticsConfig.flushAt = configuration.flushAt.toULong()
@@ -35,11 +36,14 @@ actual class Analytics internal constructor(val ios: cocoapods.Analytics.SEGAnal
         fun debug(showDebugLogs: Boolean) = cocoapods.Analytics.SEGAnalytics.debug(showDebugLogs)
     }
 
-    actual fun alias(userId: String, options: Map<Any?, *>?) = ios.alias(userId, options?.let { mapOf("context" to it) })
+    actual fun alias(userId: String, options: Map<Any?, *>?) =
+        ios.alias(userId, options?.let { mapOf("context" to it) })
 
-    actual fun track(name: String, properties: Map<Any?, *>?, options: Map<Any?, *>?) = ios.track(name, properties, options?.let { mapOf("context" to it) })
+    actual fun track(name: String, properties: Map<Any?, *>?, options: Map<Any?, *>?) =
+        ios.track(name, properties, options?.let { mapOf("context" to it) })
 
-    actual fun identify(userId: String?, traits: Map<Any?, *>?, options: Map<Any?, *>?) = ios.identify(userId, traits, options?.let { mapOf("context" to it) })
+    actual fun identify(userId: String?, traits: Map<Any?, *>?, options: Map<Any?, *>?) =
+        ios.identify(userId, traits, options?.let { mapOf("context" to it) })
 
     actual fun screen(
         screenTitle: String,
@@ -47,7 +51,8 @@ actual class Analytics internal constructor(val ios: cocoapods.Analytics.SEGAnal
         options: Map<Any?, *>?
     ) = ios.screen(screenTitle, properties, options?.let { mapOf("context" to it) })
 
-    actual fun group(groupId: String, traits: Map<Any?, *>?, options: Map<Any?, *>?) = ios.group(groupId, traits, options?.let { mapOf("context" to it) })
+    actual fun group(groupId: String, traits: Map<Any?, *>?, options: Map<Any?, *>?) =
+        ios.group(groupId, traits, options?.let { mapOf("context" to it) })
 
     actual fun optOut(status: Boolean) = if (status) {
         ios.disable()
