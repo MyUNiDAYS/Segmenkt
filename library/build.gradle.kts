@@ -63,7 +63,7 @@ kotlin {
     ios()
     iosSimulatorArm64()
     cocoapods {
-        ios.deploymentTarget = "12.0"
+        ios.deploymentTarget = "11.0"
         framework {
             baseName = MODULE_NAME
             isStatic = true
@@ -76,7 +76,7 @@ kotlin {
         }
         pod("Segment-Firebase") {
             source = git("https://github.com/MyUNiDAYS/analytics-ios-integration-firebase.git") {
-                commit = "447d8e94a4bc0135daca07d34146870db9ee39aa"
+                commit = "7e37ecd4bced57a2b748ecb3b3627f9f5cafba2d"
             }
         }
     }
