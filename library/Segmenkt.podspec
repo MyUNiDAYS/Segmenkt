@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'Segmenkt'
-    spec.version                  = '0.2.0'
+    spec.version                  = '0.3.0'
     spec.homepage                 = ''
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
     spec.summary                  = ''
     spec.vendored_frameworks      = 'build/cocoapods/framework/segmenkt.framework'
     spec.libraries                = 'c++'
-    spec.ios.deployment_target = '11.0'
+    spec.ios.deployment_target = '12.0'
     spec.dependency 'Analytics'
     spec.dependency 'Segment-Firebase'
                 

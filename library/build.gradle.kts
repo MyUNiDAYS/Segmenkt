@@ -63,20 +63,20 @@ kotlin {
     ios()
     iosSimulatorArm64()
     cocoapods {
-        ios.deploymentTarget = "11.0"
+        ios.deploymentTarget = "12.0"
         framework {
             baseName = MODULE_NAME
             isStatic = true
         }
         pod("Analytics") {
             moduleName = "Segment"
-            source = git("https://github.com/Reedyuk/analytics-ios.git") {
-                branch = "master"
+            source = git("https://github.com/MyUNiDAYS/analytics-ios.git") {
+                commit = "508ec32e151eae684240a2ed908b99d0a158c687"
             }
         }
         pod("Segment-Firebase") {
-            source = git("https://github.com/Reedyuk/analytics-ios-integration-firebase.git") {
-                branch = "kmm"
+            source = git("https://github.com/MyUNiDAYS/analytics-ios-integration-firebase.git") {
+                commit = "447d8e94a4bc0135daca07d34146870db9ee39aa"
             }
         }
     }
