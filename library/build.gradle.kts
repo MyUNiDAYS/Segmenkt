@@ -76,7 +76,7 @@ kotlin {
         }
         pod("Segment-Firebase") {
             source = git("https://github.com/MyUNiDAYS/analytics-ios-integration-firebase.git") {
-                commit = "2c80e393f0d940515f34af17e7b5c0b07e30ba31"
+                commit = "bf91e3934caaa761650e08ff219e75d1f9048346"
             }
         }
     }
