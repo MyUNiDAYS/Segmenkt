@@ -70,13 +70,13 @@ kotlin {
         }
         pod("Analytics") {
             moduleName = "Segment"
-            source = git("https://github.com/Reedyuk/analytics-ios.git") {
-                branch = "master"
+            source = git("https://github.com/MyUNiDAYS/analytics-ios.git") {
+                commit = "76e4d86780e56c566c0c99a05841b4a4c8905f72"
             }
         }
         pod("Segment-Firebase") {
-            source = git("https://github.com/Reedyuk/analytics-ios-integration-firebase.git") {
-                branch = "kmm"
+            source = git("https://github.com/MyUNiDAYS/analytics-ios-integration-firebase.git") {
+                commit = "2c80e393f0d940515f34af17e7b5c0b07e30ba31"
             }
         }
     }
