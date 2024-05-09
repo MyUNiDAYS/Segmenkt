@@ -29,7 +29,7 @@ Locate the framework in the following directory
 ```
 build/XCFrameworks/
 ```
-Add the xcframework file to your xcode project, OR you can grab it from this repo in Examples/ios/frameworks/
+Add the xcframework file to your xcode project
 
 ### JS
 
@@ -82,9 +82,6 @@ Analytics.Companion().shared(context: nil).group(groupId: "1", traits: nil)
 Analytics.Companion().shared(context: nil).screen(screenTitle: "Cool Screen", properties: nil)
 ```
 
-## Examples
-
-Run the examples from the examples directory for KMM, Android and iOS
 
 ## Contributing
 
