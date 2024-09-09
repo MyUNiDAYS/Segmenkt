@@ -53,7 +53,7 @@ actual class FirebaseIntegration internal constructor(
 }
 
 /**
-    A kotlin converted implementation of FirebaseIntegration https://github.com/segment-integrations/analytics-android-integration-firebase
+ * A kotlin converted implementation of FirebaseIntegration https://github.com/segment-integrations/analytics-android-integration-firebase
  */
 internal class AndroidFirebaseIntegration(context: Context?, private val logger: Logger) :
     com.segment.analytics.integrations.Integration<FirebaseAnalytics?>() {
@@ -214,8 +214,7 @@ internal class AndroidFirebaseIntegration(context: Context?, private val logger:
 
         private fun formatProperties(properties: Properties): Bundle {
             val bundle = Bundle()
-            if ((properties.revenue() != 0.0 || properties.total() != 0.0)
-                && Utils.isNullOrEmpty(properties.currency())
+            if ((properties.revenue() != 0.0 || properties.total() != 0.0) && Utils.isNullOrEmpty(properties.currency())
             ) {
                 bundle.putString(FirebaseAnalytics.Param.CURRENCY, "USD")
             }
