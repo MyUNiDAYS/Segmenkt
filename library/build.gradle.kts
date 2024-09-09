@@ -94,7 +94,7 @@ kotlin {
             dependencies {
                 api("com.segment.analytics.android:analytics:4.10.4")
                 api("com.appsflyer:segment-android-integration:6.5.2")
-                api("com.segment.analytics.android.integrations:firebase:1.1.0")
+                api("com.segment.analytics.android.integrations:firebase:2.3.3-unidays")
             }
         }
         val androidUnitTest by getting {
