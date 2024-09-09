@@ -92,9 +92,9 @@ kotlin {
         val jsTest by getting
         val androidMain by getting {
             dependencies {
+                implementation("com.google.firebase:firebase-analytics:21.0.0")
                 api("com.segment.analytics.android:analytics:4.10.4")
                 api("com.appsflyer:segment-android-integration:6.5.2")
-                api("com.segment.analytics.android.integrations:firebase:1.1.0")
             }
         }
         val androidUnitTest by getting {
