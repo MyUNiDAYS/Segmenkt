@@ -132,6 +132,7 @@ internal class AndroidFirebaseIntegration(context: Context?, private val logger:
 
     companion object {
         val FACTORY: Factory = object : Factory {
+            @Suppress("ReturnCount")
             override fun create(
                 settings: ValueMap,
                 analytics: Analytics
@@ -274,6 +275,7 @@ internal class AndroidFirebaseIntegration(context: Context?, private val logger:
             }
         }
 
+        @Suppress("MagicNumber")
         fun makeKey(key: String?): String {
             var key = key
             val forbiddenChars = arrayOf(".", "-", " ", ":")
