@@ -2,7 +2,7 @@ import java.util.Properties
 
 dependencyResolutionManagement {
     versionCatalogs {
-        val kotlinVersion = "1.9.23"
+        val kotlinVersion = "1.9.10"
         create("libs") {
             version("kotlin", kotlinVersion)
 
