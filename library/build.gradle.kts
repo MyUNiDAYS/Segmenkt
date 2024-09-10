@@ -92,9 +92,9 @@ kotlin {
         val jsTest by getting
         val androidMain by getting {
             dependencies {
+                implementation("com.google.firebase:firebase-analytics:21.0.0")
                 api("com.segment.analytics.android:analytics:4.10.4")
                 api("com.appsflyer:segment-android-integration:6.5.2")
-                api("com.segment.analytics.android.integrations:firebase:2.3.3-unidays")
             }
         }
         val androidUnitTest by getting {
@@ -108,6 +108,10 @@ kotlin {
         val iosTest by getting
         val iosSimulatorArm64Test by getting
         iosSimulatorArm64Test.dependsOn(iosTest)
+
+//        all {
+//            languageSettings.optIn("kotlinx.cinterop.ExperimentalForeignApi")
+//        }
     }
 }
 
